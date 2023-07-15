@@ -2,7 +2,7 @@ import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { throwError } from 'rxjs';
 import { catchError } from 'rxjs/operators';
-import { batManMovies } from '../models/data-interface.ts';
+import { batManMovies } from '../models/data-interface';
 @Injectable({
   providedIn: 'root'
 })
