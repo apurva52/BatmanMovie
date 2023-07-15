@@ -1,39 +1,33 @@
 import { Component } from '@angular/core';
-import { AppService } from '../services/api.service';
-import { batManMovies, movieListEntry } from './models/data-interface';
-
+import { ApiService } from './services/api-service.ts.service';
+import { movieListEntry, batManMovies } from './models/data-interface.ts';
 @Component({
-  selector: 'my-app',
+  selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: [ './app.component.scss' ]
+  styleUrls: ['./app.component.scss']
 })
-export class AppComponent  {
-  public movieList :movieListEntry[] = []
-  copy_data: movieListEntry[] = [];
-  search: string | null = null;
-  constructor(private apiservice:AppService){
-   this.fetchMovieList()
+export class AppComponent {
+  public movieList: movieListEntry[] = [];
+  copyData: movieListEntry[] = [];
+  search: string;
+  constructor(private apiservice: ApiService) {
+    this.fetchMovieList();
   }
-  fetchMovieList()
-  {
-    this.apiservice.getBatmanMovieList().subscribe((res:batManMovies)=>{
+  fetchMovieList() {
+    this.apiservice.getBatmanMovieList().subscribe((res: batManMovies) => {
       this.movieList = res.Search;
-      this.copy_data = [...this.movieList]
-    console.log(res)
-    } )
+      this.copyData = [...this.movieList];
+      console.log(res);
+    });
   }
 
-  Keyup() :void{
+  Keyup(): void {
     console.log("errer");
-    this.movieList = this.copy_data.filter(res => {
-      if (res.Year.includes(this.search.charAt(0).toUpperCase() + this.search.slice(1)))
-        return true
-      else if (res.Year.includes(this.search.charAt(0).toLocaleLowerCase() + this.search.slice(1)))
-        return true
-      else if (res.Year.includes(this.search)) {
-        return res.Year.includes(this.search)
+    this.movieList = this.copyData.filter(res => {
+      if (res.Year.toLowerCase().includes(this.search.toLowerCase().slice(0)))
+      {
+        return true;
       }
-    })
+    });
   }
-  name = 'Angular 6';
 }
