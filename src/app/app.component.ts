@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { ApiService } from './services/api-service.ts.service';
+import { ApiService } from './services/api-service';
 import { movieListEntry, batManMovies } from './models/data-interface.ts';
 @Component({
   selector: 'app-root',
