@@ -2,28 +2,28 @@ import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { throwError } from 'rxjs';
 import { catchError } from 'rxjs/operators';
-import { batManMovies } from '../app/models/data-interface';
+import { batManMovies } from '../models/data-interface.ts';
+@Injectable({
+  providedIn: 'root'
+})
+export class ApiService {
 
-@Injectable(
-)
-export class AppService {
-  constructor(private http:HttpClient){}
-  batmanMovieUrl= 'https://www.omdbapi.com/?s=Batman&apikey=b45f3dce';
+  constructor(private http: HttpClient) { }
+  batmanMovieUrl = 'https://www.omdbapi.com/?s=Batman&apikey=b45f3dce';
 
-  getBatmanMovieList()
- {
-  let dataUrl: string = `${this.batmanMovieUrl}`
-  return this.http.get<batManMovies>(dataUrl).pipe(catchError(this.handleError))
- }
+  getBatmanMovieList() {
+    let dataUrl: string = `${this.batmanMovieUrl}`
+    return this.http.get<batManMovies>(dataUrl).pipe(catchError(this.handleError))
+  }
 
- public handleError(error: HttpErrorResponse) {
-  let errorMessage: string = ''
-  if (error.error instanceof ErrorEvent) {
+  public handleError(error: HttpErrorResponse) {
+    let errorMessage: string = ''
+    if (error.error instanceof ErrorEvent) {
       errorMessage = `Error:${error.message}`
-  }
-  else {
+    }
+    else {
       errorMessage = `Status: ${error.status} \n Message:${error.message}`;
+    }
+    return throwError(errorMessage);
   }
-  return throwError(errorMessage)
-}
 }
