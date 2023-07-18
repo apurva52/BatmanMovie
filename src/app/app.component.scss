@@ -5,6 +5,8 @@
 :host::ng-deep {
   .list-group-item-success {
     color: black;
+    border-radius: 9px;
+    border: 2px solid black;
     background-color: #c9b8b829;
   }
   .no-record {
