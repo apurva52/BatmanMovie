@@ -1,4 +1,63 @@
+.upper-container{
+    justify-content: end;
+    padding-top: 2rem;
+}
+:host::ng-deep{
+    .list-group-item-success {
+        color: black;
+    background-color: #c9b8b829;
+   
+}
+.no-record{
+    justify-content: center;
+}
+.prmbut{
+    background-color: #164971 ;
+    color: white ;
+}
+
+ .btn-secondary{
+    border-color: #aaacae;
+    background-color: #f0f2f5;
+    border-width: 1px;
+    color: black;
+    }
+.lower-container{
+    padding-top: 26px;
+.contact-img{
+    height: 43vh;
+}
 .title{
         justify-content: center;
     padding-top: 180px;
+}
+}
+ hr {
+      
+        border-color: grey;
+    border-width: 2px;
+    }
+    .rating{
+        border: 1px solid grey;
+    width: 16vh;
+    border-radius: 13px;
+        color: grey;
+    background-color: #c9b8b829;
+    }
+    .runtime{
+        font-size:19px
+    }
+    .details{
+        padding: 35px;
+    }
+    .vdetails{
+            flex-direction: row-reverse;
+            
+    }
+    .viewdetails{
+        width: 34vh;
+    font-size: 18px;
+    font-weight: 500;
+    color: white;
+    }
 }
