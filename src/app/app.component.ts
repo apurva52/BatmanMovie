@@ -7,7 +7,7 @@ import { movieListEntry, batManMovies } from './models/data-interface';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements AfterViewInit{
-  public movieList: movieListEntry[] = [];
+  public movieList: movieListEntry[] = null;
   @ViewChild('btn1') btn1: ElementRef; 
   copyData: movieListEntry[] = [];
   search: string;
