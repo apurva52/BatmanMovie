@@ -1,29 +1,59 @@
+<div class="col-md-12 row upper-container" >
+<div class="btn-group" role="group" aria-label="Basic example">
+    <button  #btn1 type="button" class="btn btn-secondary prmbut" (click)="Yearwisemovie('All',btn1,[btn2,btn3,btn4,btn5,btn6])">All</button>
+    <button  #btn2 type="button" class="btn btn-secondary" (click)="Yearwisemovie('1980',btn2,[btn1,btn3,btn4,btn5,btn6])">1980's</button>
+    <button  #btn3 type="button" class="btn btn-secondary" (click)="Yearwisemovie('1990',btn3,[btn2,btn1,btn4,btn5,btn6])">1990's</button>
+    <button  #btn4 type="button" class="btn btn-secondary" (click)="Yearwisemovie('2000',btn4,[btn2,btn3,btn1,btn5,btn6])">2000's</button>
+    <button  #btn5 type="button" class="btn btn-secondary" (click)="Yearwisemovie('2010',btn5,[btn2,btn3,btn4,btn1,btn6])">2010's</button>
+    <button  #btn6 type="button" class="btn btn-secondary" (click)="Yearwisemovie('2020',btn6,[btn2,btn3,btn4,btn5,btn1])">2020's</button>
+</div>
+</div>
 
- <form>
-  <div class="p-grid p-justify-center">
-      <div class="p-col-6">
-     <span class="p-input-icon-right">
-      <i class="pi pi-search" ></i>
-      <input type="text"  [(ngModel)]="search"  name="sr"   (keyup)="Keyup()"  class="inp-search" placeholder="Search">         
-  </span>
-      </div>
- 
-  </div>
-</form>
-
-<div class="col-md-6" *ngFor="let mlist of movieList">
+<div class="col-md-12 row lower-container">
+    <div class="col-md-12" *ngFor="let mlist of movieList">
   <div class="card list-group-item-success shadow-lg my-2">
       <div class="card-body">
-          <div class="row align-item-center">
-              <div class="col-sm-6">
+          <div class="col-md-12 row align-item-center">
+              <div class="col-sm-2">
                   <img [src]="mlist.Poster" alt="user" class="contact-img">
               </div>
 
-              <div class="col-sm-4 row title">
-                {{mlist.Title}}
+              <div class="col-sm-10 ">
+                <h2>
+{{mlist.Title}}
+</h2>
+<hr>
+<div class="row col-md-12">
+    <div class="col-md-2">
+    <button  type="button" class="btn btn-light rating">{{mlist.Rated}}</button>
+    </div>
+    <div class="col-md-8">
+        <span class="runtime"> {{mlist.Runtime}}</span>
+        </div>
+        <div class="col-md-2">
+            <span class="runtime"> {{mlist.Released}}</span>
+        </div>
+
+</div>
+<div class="row col-md-12 details">
+   <p class="runtime">
+    {{mlist.Plot}}
+   </p>
+
+</div>
+<div class="row col-md-12 vdetails">
+<button type="button" class="btn btn-warning viewdetails">View Details</button>
+
+</div>
+              
+               
               </div>
           </div>
       </div>
   </div>
 
+</div>
+</div>
+<div *ngIf="movieList.length === 0" class="col-md-12 row lower-container no-record">
+   <strong>No Record Found</strong>
 </div>
