@@ -29,7 +29,6 @@ export class ApiService {
     return throwError(errorMessage);
   }
   getMovieDetails(searchlist: movieListEntry[]){
-    console.log(searchlist)
     return forkJoin(this.getlistofdata(searchlist)).pipe(catchError(this.handleError));
    }
 
