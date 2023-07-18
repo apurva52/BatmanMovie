@@ -23,7 +23,6 @@ export class AppComponent implements AfterViewInit{
     this.apiservice.getBatmanMovieList().subscribe((res: batManMovies) => {
       this.apiservice.getMovieDetails(res.Search).subscribe((dt: movieListEntry[]) => {
       this.movieList = dt;
-      console.log(this.movieList)
       this.copyData = [...this.movieList];
       console.log(res);
       })
@@ -33,7 +32,6 @@ export class AppComponent implements AfterViewInit{
   Yearwisemovie(dateval: string, btn: HTMLElement, btnlist: HTMLElement[])
   {
     this.removeEffect(btnlist)
-    console.log(btn)
     btn.style.backgroundColor ="#164971"
      btn.style.color = "white"
     this.movieList.map(dt => {
