@@ -66,9 +66,9 @@ export class AppComponent implements AfterViewInit{
     }
   }
   removeEffect(btnlist):void{
-    for (let k of btnlist){
-      k.style.backgroundColor = ""
-      k.style.color = ""
+    for (const k of btnlist){
+      k.style.backgroundColor = '';
+      k.style.color = '';
     }
 
   }
